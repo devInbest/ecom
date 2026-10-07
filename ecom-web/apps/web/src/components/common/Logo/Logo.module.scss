@@ -1,0 +1,18 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.image {
+  width: auto;
+  height: 1.55rem;
+  max-width: min(42vw, 11.5rem);
+  object-fit: contain;
+}
+
+.compact .image {
+  height: 1.25rem;
+  max-width: min(36vw, 9.5rem);
+}

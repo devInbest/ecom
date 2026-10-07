@@ -1,0 +1,35 @@
+.toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  z-index: 250;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  color: light-dark(#fff, #0c0a09);
+  background: light-dark(rgba(12, 10, 9, 0.92), rgba(255, 255, 255, 0.96));
+  border: 1px solid light-dark(rgba(255, 255, 255, 0.08), rgba(12, 10, 9, 0.08));
+  box-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.45);
+  transform: translateX(-50%) translateY(0.75rem);
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: opacity 0.15s ease;
+  }
+}

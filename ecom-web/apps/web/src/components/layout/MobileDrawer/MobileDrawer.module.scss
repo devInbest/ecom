@@ -1,0 +1,107 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.mobileOnly {
+  display: block;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.burger {
+  border: 1px solid light-dark(rgba($text-color, 0.18), rgba(#fff, 0.2));
+  border-radius: $border-radius;
+}
+
+.drawerContent {
+  min-height: calc(100dvh - 80px);
+  justify-content: space-between;
+}
+
+.navList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+
+  a {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.section {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.expandBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.subNav {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.35rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.subTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.leafNav {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0 0 0 0.75rem;
+  display: grid;
+  gap: 0.4rem;
+
+  a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #57534e;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+
+  button,
+  a {
+    width: 100%;
+  }
+}

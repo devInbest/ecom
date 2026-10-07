@@ -1,0 +1,30 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.section {
+  padding-block: 0.8rem 1.4rem;
+}
+
+.banner {
+  border-radius: $border-radius;
+  background: linear-gradient(135deg, var(--sk-primary), var(--sk-secondary));
+  color: #fff;
+  padding: 2rem 1.2rem;
+  display: grid;
+  gap: 1.2rem;
+  box-shadow: 0 20px 34px -24px rgba(var(--sk-primary-rgb), 0.9);
+
+  @include tablet {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 2.4rem;
+  }
+
+  h2 {
+    margin-bottom: 0.45rem;
+  }
+
+  p {
+    color: rgba(#fff, 0.9);
+  }
+}

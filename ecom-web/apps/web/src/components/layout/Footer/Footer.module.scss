@@ -1,0 +1,191 @@
+@use '@/styles/mixins.scss' as *;
+
+.footer {
+  border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  background: #000;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+:global([data-mantine-color-scheme='dark']) .footer {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.inner {
+  padding-block: 3rem 2rem;
+  display: grid;
+  gap: 2rem;
+
+  @include tablet {
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 1.25rem;
+  }
+}
+
+.brand {
+  display: grid;
+  gap: 0.8rem;
+  color: #fff;
+
+  p {
+    max-width: 40ch;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+  }
+}
+
+.contactLine {
+  font-size: 0.9rem;
+  margin: 0;
+
+  a {
+    color: rgba(255, 255, 255, 0.82);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--sk-primary);
+    }
+  }
+}
+
+.links {
+  h3 {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.82);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--sk-primary);
+    }
+  }
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.socialIcon {
+  color: var(--sk-primary) !important;
+
+  &:hover {
+    color: #fff !important;
+  }
+}
+
+.brandStage {
+  padding: 2.25rem 0 0;
+  overflow: hidden;
+}
+
+.copyright {
+  margin: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.megaBrand {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1.6rem 0 1.1rem;
+  padding-inline: 0.5rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(4.2rem, 21vw, 14.5rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  user-select: none;
+}
+
+.megaWord {
+  display: inline-block;
+}
+
+.megaDot {
+  display: inline-block;
+}
+
+.tm {
+  position: relative;
+  top: 0.55em;
+  margin-left: 0.12em;
+  font-size: 0.09em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #3a3a3a;
+  vertical-align: super;
+}
+
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 0.85rem 1.1rem;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: footerTickerScroll 22s linear infinite;
+}
+
+.tickerGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.tickerItem {
+  flex-shrink: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.78rem, 1.6vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+}
+
+@keyframes footerTickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tickerTrack {
+    animation-duration: 60s;
+  }
+}

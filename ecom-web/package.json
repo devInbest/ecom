@@ -1,0 +1,23 @@
+{
+  "name": "ecom-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter @forma/web --filter @forma/api dev",
+    "dev:web": "pnpm --filter @forma/web dev",
+    "dev:api": "pnpm --filter @forma/api dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write .",
+    "db:seed": "pnpm --filter @forma/api db:seed",
+    "db:seed-categories": "pnpm --filter @forma/api db:seed-categories",
+    "db:up": "docker compose up -d mongo"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

@@ -1,0 +1,27 @@
+@use '@/styles/mixins.scss' as *;
+
+.form {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.submit {
+  width: fit-content;
+  margin-top: 0.35rem;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}

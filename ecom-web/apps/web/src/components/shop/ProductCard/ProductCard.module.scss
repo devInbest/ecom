@@ -1,0 +1,257 @@
+.card {
+  container-type: inline-size;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  color: #fff;
+}
+
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+  }
+}
+
+.surface {
+  --bar-h: clamp(2.85rem, 13cqi, 3.35rem);
+  --pad-x: clamp(0.9rem, 4.2cqi, 1.15rem);
+  --arrow-slot: 2.75rem;
+  --bar-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --bar-duration: 0.45s;
+
+  position: relative;
+  width: 100%;
+  aspect-ratio: 413 / 400;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  transition: transform var(--bar-duration) var(--bar-ease);
+  will-change: transform;
+}
+
+.imageAlt {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--bar-duration) var(--bar-ease),
+    transform var(--bar-duration) var(--bar-ease);
+  will-change: transform, opacity;
+}
+
+.card:hover .image,
+.card:focus-within .image,
+.card:hover .imageAlt,
+.card:focus-within .imageAlt {
+  transform: scale(1.06);
+}
+
+.card:hover .imageAlt,
+.card:focus-within .imageAlt {
+  opacity: 1;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: #222;
+  pointer-events: none;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.42) 72%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+  pointer-events: none;
+  transition: opacity var(--bar-duration) var(--bar-ease);
+}
+
+.card:hover .scrim,
+.card:focus-within .scrim {
+  opacity: 0.92;
+}
+
+.wish {
+  position: absolute;
+  top: clamp(0.75rem, 3.5cqi, 1.1rem);
+  right: clamp(0.75rem, 3.5cqi, 1.1rem);
+  z-index: 3;
+  width: clamp(1.85rem, 8.5cqi, 2.15rem);
+  height: clamp(1.85rem, 8.5cqi, 2.15rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.34);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.48);
+  }
+
+  &[aria-pressed='true'] {
+    color: #ff4f0f;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+}
+
+.footer {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: var(--bar-h);
+  padding: 0 var(--pad-x) 0 0;
+  padding-left: var(--arrow-slot);
+  pointer-events: none;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--arrow-slot);
+  height: var(--bar-h);
+  color: #fff;
+  pointer-events: none;
+  background: transparent;
+  border-right: 1px solid transparent;
+  transition:
+    background var(--bar-duration) var(--bar-ease),
+    border-color var(--bar-duration) var(--bar-ease),
+    backdrop-filter var(--bar-duration) var(--bar-ease);
+}
+
+.arrowIcon {
+  display: inline-flex;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.arrow:hover .arrowIcon {
+  transform: translate(2px, -2px);
+  opacity: 0.82;
+}
+
+.card:hover .arrow,
+.card:focus-within .arrow {
+  background: rgba(0, 0, 0, 0.82);
+  border-right-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.labels {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.82rem, 3.9cqi, 0.98rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+  white-space: nowrap;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.addToCart {
+  position: absolute;
+  left: var(--arrow-slot);
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--bar-h);
+  padding: 0 var(--pad-x) 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 3.7cqi, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translateY(100%);
+  transition: transform var(--bar-duration) var(--bar-ease);
+  backdrop-filter: blur(8px);
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.card:hover .addToCart,
+.card:focus-within .addToCart {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface {
+    --bar-duration: 0.15s;
+  }
+
+  .arrowIcon {
+    transition-duration: 0.15s;
+  }
+
+  .card:hover .image,
+  .card:focus-within .image,
+  .card:hover .imageAlt,
+  .card:focus-within .imageAlt {
+    transform: none;
+  }
+}

@@ -1,0 +1,52 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid light-dark(rgba(19, 34, 56, 0.12), rgba(255, 255, 255, 0.16));
+  background: light-dark(rgba(255, 255, 255, 0.75), rgba(16, 26, 44, 0.72));
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: light-dark(rgba(19, 34, 56, 0.9), rgba(255, 255, 255, 0.9));
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: light-dark(rgba(124, 58, 237, 0.35), rgba(255, 255, 255, 0.28));
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(124, 58, 237, 0.45);
+    outline-offset: 2px;
+  }
+}
+
+.swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+}
+
+.vibrant {
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+}
+
+.ocean {
+  background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+}
+
+.sunset {
+  background: linear-gradient(135deg, #f97316, #ec4899);
+}

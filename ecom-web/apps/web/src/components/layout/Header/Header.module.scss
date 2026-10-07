@@ -1,0 +1,240 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.sentinel {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: -3rem;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding-block: 1rem;
+  background: transparent;
+}
+
+// :global([data-mantine-color-scheme='dark']) .header {
+//   background: #000;
+// }
+
+.shell {
+  display: flex;
+  justify-content: center;
+}
+
+.cluster {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  transition:
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logoWrap,
+.loginWrap {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.loginWrap {
+  gap: 0.5rem;
+}
+
+.bar {
+  flex: 0 0 auto;
+  width: fit-content;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 4.25rem;
+  padding: 0.55rem 0.75rem 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 10px 30px -18px rgba(12, 10, 9, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 0 0 1px rgba(12, 10, 9, 0.06);
+  overflow: visible;
+  transition:
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    flex 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+:global([data-mantine-color-scheme='dark']) .bar {
+  border-color: rgba(#fff, 0.16);
+  background: rgba(#fff, 0.1);
+  box-shadow:
+    0 10px 30px -18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(#fff, 0.08);
+}
+
+.desktopNav {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.loginButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 2.55rem;
+  padding: 0 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sk-primary);
+  color: #fff !important;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 10px 22px -14px rgba(var(--sk-primary-rgb), 0.95);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--sk-primary) 88%, #000);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px -14px rgba(var(--sk-primary-rgb), 0.95);
+  }
+}
+
+.iconLink {
+  position: relative;
+  @include flex-center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 4px 12px -8px rgba(12, 10, 9, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 0 0 1px rgba(12, 10, 9, 0.06);
+}
+
+.themeToggle {
+  display: none;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 4px 12px -8px rgba(12, 10, 9, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 0 0 1px rgba(12, 10, 9, 0.06);
+
+  @include tablet {
+    display: inline-flex;
+  }
+}
+
+:global([data-mantine-color-scheme='dark']) .themeToggle {
+  border-color: rgba(#fff, 0.16);
+  background: rgba(#fff, 0.1);
+}
+
+:global([data-mantine-color-scheme='dark']) .iconLink {
+  border-color: rgba(#fff, 0.16);
+  background: rgba(#fff, 0.1);
+}
+
+.badge {
+  position: absolute;
+  top: -0.15rem;
+  right: -0.15rem;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: var(--sk-primary);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  @include flex-center;
+}
+
+.scrolled {
+  .cluster {
+    width: min(100%, 50rem);
+    max-width: 50rem;
+    gap: 0.55rem;
+    min-height: 4.25rem;
+    padding: 0.55rem 0.7rem 0.55rem 0.85rem;
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+      0 10px 30px -18px rgba(12, 10, 9, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 0 0 1px rgba(12, 10, 9, 0.06);
+  }
+
+  :global([data-mantine-color-scheme='dark']) & .cluster {
+    border-color: rgba(#fff, 0.16);
+    background: rgba(#fff, 0.1);
+    box-shadow:
+      0 10px 30px -18px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(#fff, 0.08);
+  }
+
+  .bar {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cluster,
+  .bar {
+    transition: none;
+  }
+}

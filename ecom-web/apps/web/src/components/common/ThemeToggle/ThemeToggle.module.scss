@@ -1,0 +1,5 @@
+@use '@/styles/variables.scss' as *;
+
+.toggle {
+  border: 1px solid light-dark(rgba($text-color, 0.18), rgba(#fff, 0.2));
+}
